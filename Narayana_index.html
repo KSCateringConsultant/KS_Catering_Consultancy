@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Food Entry Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .form-container {
+            width: 100%;
+            border: 1px solid #000;
+            padding: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section label {
+            font-weight: bold;
+            display: inline-block;
+            width: 150px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        table th, table td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: center;
+        }
+        .remarks {
+            width: 100%;
+            height: 100px;
+            margin-top: 10px;
+        }
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <div class="header">DAILY FOOD ENTRY FORM</div>
+
+    <div class="section">
+        <label>Date:</label>
+        <input type="date" id="dateInput" name="date" />
+        <label style="margin-left: 50px;">Supervisor:</label>
+        <select name="supervisor">
+            <option value="Employee 1">Employee 1</option>
+            <option value="Employee 2">Employee 2</option>
+            <option value="Employee 3">Employee 3</option>
+            <option value="Employee 4">Employee 4</option>
+        </select>
+    </div>
+
+    <div class="section">
+        <label>Location:</label>
+        <select name="location">
+            <option value="Hyderabad">Hyderabad</option>
+            <option value="Waranagal">Waranagal</option>
+            <option value="Kamareddy">Kamareddy</option>
+            <option value="Jagithyala">Jagithyala</option>
+            <option value="Kadapa">Kadapa</option>
+        </select>
+    </div>
+
+    <div class="section">
+        <label>Session:</label>
+        <select name="session">
+            <option value="Breakfast">Breakfast</option>
+            <option value="Lunch">Lunch</option>
+            <option value="Snacks">Snacks</option>
+            <option value="Dinner">Dinner</option>
+            <option value="Special Event">Special Event</option>
+        </select>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>S_No</th>
+                <th>Menu</th>
+                <th>Units</th>
+                <th>Pick-Up</th>
+                <th>Wastage</th>
+                <th>Total Consumption</th>
+                <th>Food Pick-Up File</th>
+                <th>Wastage File</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Generate 10 rows for menu entries -->
+            <tr>
+                <td>1</td>
+                <td><input type="text" name="menu_1" /></td>
+                <td>
+                    <select name="units_1">
+                        <option value="Kgs">Kgs</option>
+                        <option value="Ltrs">Ltrs</option>
+                        <option value="No's">No's</option>
+                    </select>
+                </td>
+                <td><input type="number" name="pickup_1" oninput="calculateTotal(1)" /></td>
+                <td><input type="number" name="wastage_1" oninput="calculateTotal(1)" /></td>
+                <td><input type="number" name="total_consumption_1" readonly /></td>
+                <td><input type="file" name="food_pickup_file_1" /></td>
+                <td><input type="file" name="wastage_file_1" /></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td><input type="text" name="menu_2" /></td>
+                <td>
+                    <select name="units_2">
+                        <option value="Kgs">Kgs</option>
+                        <option value="Ltrs">Ltrs</option>
+                        <option value="No's">No's</option>
+                    </select>
+                </td>
+                <td><input type="number" name="pickup_2" oninput="calculateTotal(2)" /></td>
+                <td><input type="number" name="wastage_2" oninput="calculateTotal(2)" /></td>
+                <td><input type="number" name="total_consumption_2" readonly /></td>
+                <td><input type="file" name="food_pickup_file_2" /></td>
+                <td><input type="file" name="wastage_file_2" /></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td><input type="text" name="menu_3" /></td>
+                <td>
+                    <select name="units_3">
+                        <option value="Kgs">Kgs</option>
+                        <option value="Ltrs">Ltrs</option>
+                        <option value="No's">No's</option>
+                    </select>
+                </td>
+                <td><input type="number" name="pickup_3" oninput="calculateTotal(3)" /></td>
+                <td><input type="number" name="wastage_3" oninput="calculateTotal(3)" /></td>
+                <td><input type="number" name="total_consumption_3" readonly /></td>
+                <td><input type="file" name="food_pickup_file_3" /></td>
+                <td><input type="file" name="wastage_file_3" /></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td><input type="text" name="menu_4" /></td>
+                <td>
+                    <select name="units_4">
+                        <option value="Kgs">Kgs</option>
+                        <option value="Ltrs">Ltrs</option>
+                        <option value="No's">No's</option>
+                    </select>
+                </td>
+                <td><input type="number" name="pickup_4" oninput="calculateTotal(4)" /></td>
+                <td><input type="number" name="wastage_4" oninput="calculateTotal(4)" /></td>
+                <td><input type="number" name="total_consumption_4" readonly /></td>
+                <td><input type="file" name="food_pickup_file_4" /></td>
+                <td><input type="file" name="wastage_file_4" /></td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td><input type="text" name="menu_5" /></td>
+                <td>
+                    <select name="units_5">
+                        <option value="Kgs">Kgs</option>
+                        <option value="Ltrs">Ltrs</option>
+                        <option value="No's">No's</option>
+                    </select>
+                </td>
+                <td><input type="number" name="pickup_5" oninput="calculateTotal(5)" /></td>
+                <td><input type="number" name="wastage_5" oninput="calculateTotal(5)" /></td>
+                <td><input type="number" name="total_consumption_5" readonly /></td>
+                <td><input type="file" name="food_pickup_file_5" /></td>
+                <td><input type="file" name="wastage_file_5" /></td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td><input type="text" name="menu_6" /></td>
+                <td>
+                    <select name="units_6">
+                        <option value="Kgs">Kgs</option>
+                        <option value="Ltrs">Ltrs</option>
+                        <option value="No's">No's</option>
+                    </select>
+                </td>
+                <td><input type="number ```html
+" name="pickup_6" oninput="calculateTotal(6)" /></td>
+                <td><input type="number" name="wastage_6" oninput="calculateTotal(6)" /></td>
+                <td><input type="number" name="total_consumption_6" readonly /></td>
+                <td><input type="file" name="food_pickup_file_6" /></td>
+                <td><input type="file" name="wastage_file_6" /></td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td><input type="text" name="menu_7" /></td>
+                <td>
+                    <select name="units_7">
+                        <option value="Kgs">Kgs</option>
+                        <option value="Ltrs">Ltrs</option>
+                        <option value="No's">No's</option>
+                    </select>
+                </td>
+                <td><input type="number" name="pickup_7" oninput="calculateTotal(7)" /></td>
+                <td><input type="number" name="wastage_7" oninput="calculateTotal(7)" /></td>
+                <td><input type="number" name="total_consumption_7" readonly /></td>
+                <td><input type="file" name="food_pickup_file_7" /></td>
+                <td><input type="file" name="wastage_file_7" /></td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td><input type="text" name="menu_8" /></td>
+                <td>
+                    <select name="units_8">
+                        <option value="Kgs">Kgs</option>
+                        <option value="Ltrs">Ltrs</option>
+                        <option value="No's">No's</option>
+                    </select>
+                </td>
+                <td><input type="number" name="pickup_8" oninput="calculateTotal(8)" /></td>
+                <td><input type="number" name="wastage_8" oninput="calculateTotal(8)" /></td>
+                <td><input type="number" name="total_consumption_8" readonly /></td>
+                <td><input type="file" name="food_pickup_file_8" /></td>
+                <td><input type="file" name="wastage_file_8" /></td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td><input type="text" name="menu_9" /></td>
+                <td>
+                    <select name="units_9">
+                        <option value="Kgs">Kgs</option>
+                        <option value="Ltrs">Ltrs</option>
+                        <option value="No's">No's</option>
+                    </select>
+                </td>
+                <td><input type="number" name="pickup_9" oninput="calculateTotal(9)" /></td>
+                <td><input type="number" name="wastage_9" oninput="calculateTotal(9)" /></td>
+                <td><input type="number" name="total_consumption_9" readonly /></td>
+                <td><input type="file" name="food_pickup_file_9" /></td>
+                <td><input type="file" name="wastage_file_9" /></td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td><input type="text" name="menu_10" /></td>
+                <td>
+                    <select name="units_10">
+                        <option value="Kgs">Kgs</option>
+                        <option value="Ltrs">Ltrs</option>
+                        <option value="No's">No's</option>
+                    </select>
+                </td>
+                <td><input type="number" name="pickup_10" oninput="calculateTotal(10)" /></td>
+                <td><input type="number" name="wastage_10" oninput="calculateTotal(10)" /></td>
+                <td><input type="number" name="total_consumption_10" readonly /></td>
+                <td><input type="file" name="food_pickup_file_10" /></td>
+                <td><input type="file" name="wastage_file_10" /></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="section">
+        <label>Student Count:</label>
+        <input type="number" name="student_count" style="margin-top : 10px; margin-bottom: 20px;" />
+    </div>
+    <div class="section">
+        <label>Student Actual Count:</label>
+        <input type="number" name="student_actual_count" style="margin-top: 10px; margin-bottom: 20px;" />
+    </div>
+
+    <div class="button-container">
+        <button type="button" onclick="clearForm()">Clear</button>
+        <button type="submit">Submit</button>
+    </div>
+</div>
+
+<script>
+    function clearForm() {
+        document.querySelector('.form-container').reset();
+    }
+
+    function calculateTotal(row) {
+        const pickup = document.querySelector(`input[name="pickup_${row}"]`).value;
+        const wastage = document.querySelector(`input[name="wastage_${row}"]`).value;
+        const totalConsumption = document.querySelector(`input[name="total_consumption_${row}"]`);
+        
+        if (pickup && wastage) {
+            totalConsumption.value = pickup - wastage;
+        } else {
+            totalConsumption.value = '';
+        }
+    }
+</script>
+
+</body>
+</html>
